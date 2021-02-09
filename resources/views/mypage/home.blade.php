@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">マイページ</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                        {{  Auth::user()->name }}としてログイン中です<br>
+                    <a href="{{ action('Auth\UserController@edit') }}"><button class="btn btn-primary">編集</button></a>
                 </div>
             </div>
         </div>

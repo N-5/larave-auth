@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/mypage', 'HomeController@index')->name('home');
 
 // ここから追加
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
@@ -33,3 +33,8 @@ Route::get('password/admin/reset', 'Auth\AdminForgotPasswordController@showLinkR
 Route::post('password/admin/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 Route::get('password/admin/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('password/admin/reset', 'Auth\AdminResetPasswordController@reset')->name('admin.password.update');
+
+//ユーザー
+Route::get('mypage/index', 'Auth\UserController@index')->name('mypage.index');
+Route::get('mypage/edit', 'Auth\UserController@edit')->name('mypage.edit');
+Route::post('mypage/edit', 'Auth\UserController@update')->name('mypage.update');
